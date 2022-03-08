@@ -1,46 +1,153 @@
-:root {
-  font-size: 16px;
-  font-family: Helvetica, "Montserrat", Arial, sans-serif;
-  background-color: #050505;
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-size: 16px;
+  font-family: "Courier New", Geneva, Tahoma, sans-serif;
+  background-color: #050505;
+}
+* h1 {
+  color: #FFFFFF;
+}
+* p {
+  color: #F5F1E3;
 }
 
 .container {
   display: flex;
-  flex-direction: row;
-}
-.container #landing {
-  display: flex;
-  margin: 1em;
   flex-direction: column;
 }
-.container #landing h2, .container #landing p {
-  color: #F5F1E3;
-  margin: 0;
-}
-.container #landing h1 {
-  color: #FFFFFF;
-  margin: 0.2em 0;
-}
-.container button {
-  background-color: #1B9AAA;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 0.5em;
-  padding: 0.5em 0.7em;
-  transition: 150ms ease-in-out;
-  margin: 0.5em 0;
-}
-.container button:hover {
-  background-color: #DDDBCB;
-  color: #050505;
-}
 .container img {
-  width: 12em;
-  height: 12em;
-  border: #DDDBCB solid 1em;
-  border-radius: 50%;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  -webkit-mask-box-image: linear-gradient(to bottom, #252525 0%, transparent 100%);
+}
+.container section {
+  background-color: transparent;
+  position: absolute;
+  margin-left: 10vw;
+  bottom: 20vh;
+  z-index: 2;
+}
+.container section h1 {
+  margin: 0 0 0.5em 0;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-size: 2.75em;
+  font-weight: bold;
+  animation: fly-in 1s ease-out backwards;
+}
+.container section button {
+  border: none;
+  font-weight: bold;
+  background-color: #1B9AAA;
+  border-radius: 0.2em;
+  padding: 5px 15px;
+  width: max-content;
+  height: 2.5em;
+  color: #FFFFFF;
+  margin-top: 0.5em;
+  transition: 100ms ease-in-out;
+  animation: fly-in 1s ease-out backwards;
+  animation-delay: 250ms;
+}
+.container section button:hover {
+  color: #050505;
+  background-color: #DDDBCB;
+}
+
+@keyframes fly-in {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes drop-in {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+nav {
+  position: fixed;
+  height: 10vh;
+  width: 100vw;
+  margin: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+  color: white;
+}
+nav span {
+  background-color: transparent;
+  margin-left: 10vw;
+  font-size: 2em;
+  font-family: "Permanent Marker";
+  animation: drop-in 1s ease-in-out backwards;
+}
+nav ul {
+  background-color: transparent;
+  width: 45vw;
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+}
+nav li {
+  background-color: transparent;
+  padding: 10px 15px;
+  transition: background 200ms ease-in-out;
+  animation: drop-in 1s ease-in-out backwards;
+}
+nav li:nth-child(1) {
+  animation-delay: 100ms;
+}
+nav li:nth-child(2) {
+  animation-delay: 200ms;
+}
+nav li:nth-child(3) {
+  animation-delay: 300ms;
+}
+nav li a {
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+nav li:hover {
+  background-color: #1B9AAA;
+  border-radius: 0.15em;
+}
+
+.intro {
+  padding: 10% 5%;
+}
+.intro h1 {
+  font-size: 2.75em;
+  margin-bottom: 5%;
+}
+.intro p {
+  margin: 2.5% 0;
 }
 
 /*# sourceMappingURL=style.css.map */
